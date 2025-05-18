@@ -1,0 +1,208 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For cutie🫶💞</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(#ffe6f0, #ffccff);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .background-heart {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 270px;
+      transform: translate(-50%, -50%) scale(1);
+      background: #ff80ab;
+      z-index: 0;
+      opacity: 0.2;
+      animation: pulse 6s ease-in-out infinite;
+      transform: rotate(45deg);
+    }
+
+    .background-heart::before,
+    .background-heart::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: #ff80ab;
+      border-radius: 50%;
+    }
+
+    .background-heart::before {
+      top: -150px;
+      left: 0;
+    }
+
+    .background-heart::after {
+      top: 0;
+      left: -150px;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1) rotate(45deg);
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.05) rotate(45deg);
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      color: #880e4f;
+    }
+
+    h1 {
+      font-size: 3em;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin-top: 10px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    .love-you, .sad-msg {
+      font-size: 2.5em;
+      margin-top: 30px;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .love-you.show {
+      color: #d50000;
+      opacity: 1;
+    }
+
+    .sad-msg.show {
+      color: #555;
+      opacity: 1;
+    }
+
+    .heart {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: red;
+      transform: rotate(45deg);
+      animation: fall 5s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -7.5px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -7.5px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -10%;
+        opacity: 1;
+      }
+      100% {
+        top: 110%;
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      background: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      animation: fadeIn 4s ease-in-out;
+    }
+
+    button.no {
+      background: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="background-heart"></div>
+
+  <div class="container">
+    <h1>Hi cutie🫶💞</h1>
+    <p>I have something to say...</p>
+    <p>Will you be mine?</p>
+    <div class="buttons">
+      <button onclick="showLove()">Yes</button>
+      <button class="no" onclick="showSad()">No</button>
+    </div>
+    <div id="loveMessage" class="love-you">I Love You</div>
+    <div id="sadMessage" class="sad-msg">It's okay... I'll still care for you.</div>
+  </div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 200);
+
+    function showLove() {
+      alert("She said YES!");
+      document.getElementById("loveMessage").classList.add("show");
+      document.getElementById("sadMessage").classList.remove("show");
+    }
+
+    function showSad() {
+      alert("She said NO...");
+      document.getElementById("sadMessage").classList.add("show");
+      document.getElementById("loveMessage").classList.remove("show");
+    }
+  </script>
+</body>
+</html>
